@@ -15,7 +15,7 @@ export class AllExceptionFilter implements ExceptionFilter {
     const ctx = host.switchToHttp();
     const response = ctx.getResponse();
     const request = ctx.getRequest();
-
+    console.log('caiu  AQUI');
     const status =
       exception instanceof HttpException
         ? exception.getStatus()
@@ -23,7 +23,7 @@ export class AllExceptionFilter implements ExceptionFilter {
 
     const message =
       exception instanceof HttpException ? exception.getResponse() : exception;
-
+    console.log({ message });
     this.logger.error(
       `Http Status:${status} Error Message: ${JSON.stringify(message)}`,
     );

@@ -81,4 +81,8 @@ export class CategoriesService {
       { $set: foundCategory },
     );
   }
+
+  async getCategoryByplayer(_id: string): Promise<Category> {
+    return await this.categoryModel.findOne({ players: { _id } });
+  }
 }
